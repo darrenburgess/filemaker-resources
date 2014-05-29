@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMSC</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462515e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[CreateRecord]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><Script includeInMenu="False" runFullAccess="True" id="319" name="CreateRecord" clipID="433116"><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Purpose:		create a record from any context</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Parameters:	field names, data are delivered in the script parameter
+
+Use GetFieldName to protect against field renaming.
+
+Data values from global fields that should be NULLed by script should use GetFieldName () as well
+
+Do NOT use GFN in data values that should not be nulled!
+
+Data values can be field names, literal text, variables or calculations
+
+Data Values may include carriage returns.  Use the string "~CR~" instead of a CR:
+	"FirstLine" &amp; "~CR~" &amp; "SecondLine"
+
+//////////////////////////////////////////////////
+// Sample script parameter with multiple values:
+//////////////////////////////////////////////////
+
+"$CR_LayoutName = " &amp; Quote("DEV_Child")  &amp; ";¶" &amp; 
+
+"$CR_RefreshType = " &amp; Quote("typeHere")  &amp; ";¶" &amp; 
+
+"$CR_TargetFields= " &amp; Quote(
+List ( 
+	GetFieldName ( Child::id_Parent ) ;
+	GetFieldName ( Child::ChildData1 ) ;
+	GetFieldName ( Child::ChildData2 )
+	)
+)
+&amp; ";¶" &amp; 
+
+"$CR_Data =  " &amp; Quote(
+List ( 
+	Parent::id ;
+	"TestField1" ;
+	"TestField2" 
+	 )
+)
+
+///////////////////////////////////////////////////////////////////////////
+// Sample script parameter for setting single value (don't use List function)
+///////////////////////////////////////////////////////////////////////////
+
+"$CR_LayoutName = " &amp; Quote("DEV_Child")  &amp; ";¶" &amp; 
+
+"$CR_TargetFields= " &amp; Quote(
+
+	GetFieldName ( Child::id_Parent ) 
+
+)
+
+&amp; ";¶" &amp; 
+
+"$CR_Data =  " &amp; Quote(
+
+	Parent::id ;
+
+)
+
+//////////////////////////////</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Called From:	OnObjectExit trigger on data entry UI, button or subscript</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Author:	        Darren Burgess, MightyData, LLC, darrentburgess@gmail.com</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Notes:			</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Revision:		Last changed 20130507 by DB</Text></Step><Step enable="True" id="89" name="Comment"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text> Parse parameters</Text></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>// PARSE Let Variables into script $variables
+                                 
+/*
+This is based on the #Assign custom function by Jermey Bante. See below.
+*/
+
+
+/**
+ * =====================================
+ *
+ * PURPOSE:
+ * 		Parse the any valid Let Variable string to declare and populate a
+ * 		series of locally-scoped script variables. #Assign also handles native
+ * 		Let() function formatting which limits dependancies on #() by other custom fuctions.
+ *
+ * RETURNS:
+ * 		True (1) when parameters is a valid set of name-value pairs (which includes
+ * 		the empty string); False (0) otherwise.
+ *
+ * PARAMETERS:
+ * 		parameters: The (potentially Null) string of name-value pairs to parse into
+ * 		variables.
+ *
+ * EXAMPLES:
+ * 		set the first ~parameter variable below to the string that contains the Let Variables
+ *
+ * DEPENDENCIES: none
+ *
+ * NOTE:
+ * 		To be accessible outside this function, variable declarations in parameters
+ * 		must use the $- or $$-prefixed notation for FileMaker variables. This
+ * 		function does not handle that for you.
+ *
+ * HISTORY:
+ *             MODIFEDIED on 2013-03-25 by todd@geistinteractive.com refactored for use in a script instead of as custom function
+ * 		MODIFIED on 2011-03-03 by matt@filemakermagazine.com to not use $void and
+ * 		only include trailing $~ if parameters is non conforming to Let()
+ * 		MODIFIED on 2010-10-04 by jeremy@kyologic.com to return explicit True or
+ * 		False values indicating successful evaluation of the script result, and to
+ * 		fit syntax inspired by a comment on standards.filemakermagazine.com by
+ * 		Richard Dyce.
+ * 		CREATED on 2010-03-13 by Jeremy Bante of Kyo Logic (jeremy@kyologic.com).
+ * 		INSPIRED by an example in the FileMaker help documentation.
+ *
+ * REFERENCES:
+ * 		Script Parameter Interface Best Practice: http://filemakerstandards.org/pages/viewpage.action?pageId=557462
+ * =====================================
+ */
+ 
+Let (
+[
+//     set "~parameters" to a Valid Let Variables String for ex. Get (ScriptParameter) or Get (ScriptResults)
+
+
+
+        ~parameters =  Get (ScriptParameter);
+
+
+
+//---------- NO NEED TO EDIT BELOW HERE -----------------
+
+	~evaluateString =
+		"Let( [¶"
+		&amp; ~parameters
+		&amp; If ( Right ( ~parameters; 1 ) = ";"
+				or Right ( ~parameters ; 1 ) = ¶;
+				"$~ = $~")  //terminating variable to keep semicolon-delimited sytax in parameters consistent
+		&amp; "¶];¶"
+		&amp; "True¶)"
+
+];	//end variable definitions
+
+	If ( IsValidExpression ( ~evaluateString );
+			Evaluate ( ~evaluateString );
+		//else, ~evaluateString is not a valid expression...
+		False
+	)
+)
+
+/*
+Unit tests
+Accounting for both a native Let() format and the more
+explicit formatting from #()
+
+List(
+#Assign ( # ( "foo" ; "bar" ) ); // using # without $
+#Assign ( # ( "$foo" ; "bar" ) ); // using # with $
+#Assign ( # ( "$foo" ; "bar" ) &amp; # ( "bar" ; "baz" ) ); // concatenated #()
+#Assign ( List ( # ( "foo" ; "bar" ); # ( "$bar" ; "baz" ) ) ); // List with &amp; without $
+#Assign ( "$foo = \"bar\"" ); // single line raw  Let declaration
+#Assign ( "$foo = \"bar\";¶$bar = \"baz\""); // multi-line raw Let
+)
+*/</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$parsed</Name></Step><Step enable="True" id="68" name="If"><Calculation>not  ($parsed )</Calculation></Step><Step enable="True" id="103" name="Exit Script"/><Step enable="True" id="70" name="End If"/><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text> Go to layout</Text></Step><Step enable="True" id="79" name="Freeze Window"/><Step enable="True" id="141" name="Set Variable"><Value><Calculation>TriggersDisable</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$triggers</Name></Step><Step enable="True" id="86" name="Set Error Capture"><Set state="True"/></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="LayoutNameByCalc"/><Layout id="0" name=""><Calculation>$CR_LayoutName</Calculation></Layout></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Get ( LastError )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$error</Name></Step><Step enable="True" id="86" name="Set Error Capture"><Set state="False"/></Step><Step enable="True" id="68" name="If"><Calculation>$error ≠ 0</Calculation></Step><Step enable="True" id="103" name="Exit Script"><Calculation>$error</Calculation></Step><Step enable="True" id="70" name="End If"/><Step enable="True" id="141" name="Set Variable"><Value><Calculation>TriggersReset</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$triggers</Name></Step><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text> Create the record/request</Text></Step><Step enable="True" id="86" name="Set Error Capture"><Set state="True"/></Step><Step enable="True" id="7" name="New Record/Request"/><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Get ( LastError )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$error</Name></Step><Step enable="True" id="86" name="Set Error Capture"><Set state="False"/></Step><Step enable="True" id="68" name="If"><Calculation>$error ≠ 0</Calculation></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="OriginalLayout"/></Step><Step enable="True" id="103" name="Exit Script"><Calculation>$error</Calculation></Step><Step enable="True" id="70" name="End If"/><Step enable="True" id="89" name="Comment"><Text> ----------Modifiy this step to conform to your record ID naming convention------------</Text></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Evaluate ( Get ( LayoutTableName ) &amp; "::id" )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$id</Name></Step><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text> Set Values and Null Global fields</Text></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>ValueCount ( $CR_TargetFields )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$countFields</Name></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>ValueCount ( $CR_Data )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$countData</Name></Step><Step enable="True" id="71" name="Loop"/><Step enable="True" id="72" name="Exit Loop If"><Calculation>Let ( $i = $i + 1 ; $i &gt; $countFields )</Calculation></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>GetValue ( $CR_TargetFields ; $i )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$fieldName</Name></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Substitute ( GetValue ( $CR_Data ; $i ) ; "~CR~" ; "¶" )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$value</Name></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Case (
+
+	PatternCount ( FieldType ( Get ( FileName ) ; $value ) ; "global" ) ;
+	1;
+	""
+
+)</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$dataIsGlobalField</Name></Step><Step enable="True" id="86" name="Set Error Capture"><Set state="True"/></Step><Step enable="True" id="147" name="Set Field By Name"><Result><Calculation>Let ( [
+
+	data = $value ; 
+
+	IsFieldName = PatternCount ( data ; "::" ) ;
+
+	IsVariableName = PatternCount ( data ; "$" )
+
+] ;
+
+
+Case ( 
+
+	isFieldName = 1 or isVariableName &gt; 0 ;
+	Evaluate ( data ) ;    
+	data  
+
+	)  // end Case
+
+
+//data
+//IsFieldName
+//IsVariableName
+
+) // end Let</Calculation></Result><TargetName><Calculation>$fieldName</Calculation></TargetName></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Get ( LastError )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$error</Name></Step><Step enable="True" id="86" name="Set Error Capture"><Set state="False"/></Step><Step enable="True" id="68" name="If"><Calculation>$error ≠ 0</Calculation></Step><Step enable="True" id="9" name="Delete Record/Request"><NoInteract state="True"/></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="OriginalLayout"/></Step><Step enable="True" id="103" name="Exit Script"><Calculation>$error</Calculation></Step><Step enable="True" id="70" name="End If"/><Step enable="True" id="68" name="If"><Calculation>$dataIsGlobalField</Calculation></Step><Step enable="True" id="147" name="Set Field By Name"><Result><Calculation>""</Calculation></Result><TargetName><Calculation>$value</Calculation></TargetName></Step><Step enable="True" id="70" name="End If"/><Step enable="True" id="73" name="End Loop"/><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text> Window/Relationship refresh branches</Text></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="OriginalLayout"/></Step><Step enable="True" id="68" name="If"><Calculation>$CR_RefreshType = "None"</Calculation></Step><Step enable="True" id="103" name="Exit Script"><Calculation>$id</Calculation></Step><Step enable="True" id="125" name="Else If"><Calculation>$CR_RefreshType = "FlushCache"</Calculation></Step><Step enable="True" id="80" name="Refresh Window"><Option state="True"/><FlushSQLData state="False"/></Step><Step enable="True" id="75" name="Commit Records/Requests"><NoInteract state="True"/><Option state="False"/><ESSForceCommit state="False"/></Step><Step enable="True" id="125" name="Else If"><Calculation>$CR_RefreshType = "FlushExternal"</Calculation></Step><Step enable="True" id="80" name="Refresh Window"><Option state="True"/><FlushSQLData state="True"/></Step><Step enable="True" id="75" name="Commit Records/Requests"><NoInteract state="True"/><Option state="False"/><ESSForceCommit state="False"/></Step><Step enable="True" id="125" name="Else If"><Calculation>$CR_RefreshType = "FlushCartesian"</Calculation></Step><Step enable="True" id="147" name="Set Field By Name"><Result><Calculation>1</Calculation></Result><TargetName><Calculation>$CR_RefreshField</Calculation></TargetName></Step><Step enable="True" id="75" name="Commit Records/Requests"><NoInteract state="False"/><Option state="False"/><ESSForceCommit state="False"/></Step><Step enable="True" id="70" name="End If"/><Step enable="True" id="89" name="Comment"/><Step enable="True" id="103" name="Exit Script"><Calculation>$id</Calculation></Step><Step enable="True" id="89" name="Comment"/></Script></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

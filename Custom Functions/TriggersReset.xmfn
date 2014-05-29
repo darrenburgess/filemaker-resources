@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462514e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[TriggersReset(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="9" functionArity="0" visible="True" parameters="" name="TriggersReset"><Calculation>/**
+ * =====================================
+ * TriggersReset
+ *
+ * PURPOSE:
+ * TriggersReset sets global variables to indicate that script triggers should
+ * be allowed to run, regardless of any persisting instructions to the contrary
+ * from any script. This may be useful to recover from a situation where a
+ * script forgot to call TriggersEnable at the end of operation. In order to be
+ * suppressed, a script called via trigger should use the TriggersAreActive
+ * function to decide whether or not to run.
+ *
+ * RETURNS: "" (null)
+ *
+ * PARAMETERS: none
+ *
+ * REFERENCED VARIABLES:
+ * $$~DISABLETRIGGERS
+ * $$~DISABLETRIGGERS.SCRIPTS
+ *
+ * DEPENDENCIES: none
+ *
+ * HISTORY:
+ * MODIFIED on 2010-12-13 by jbante@supportgroup.com to use names suggested at
+ * filemakerstandards.org.
+ * CREATED on 2010-12-12 by Jeremy Bante of The Support Group (jbante@supportgroup.com).
+ *
+ * REFERENCES:
+ * Supressible Triggered Scripts Best Practice: http://filemakerstandards.org/display/bp/Suppressible+Triggered+Scripts
+ * =====================================
+ */
+
+Let ( [
+        $$~DISABLETRIGGERS.SCRIPTS = "";
+        $$~DISABLETRIGGERS = ""
+];
+        ""
+)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
