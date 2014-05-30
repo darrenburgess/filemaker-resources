@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462514e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[TriggersReset(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="9" functionArity="0" visible="True" parameters="" name="TriggersReset"><Calculation>/**
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42052142]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>-2.147484e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[TriggersReset(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="9" functionArity="0" visible="True" parameters="" name="TriggersReset"><Calculation>/**
  * =====================================
  * TriggersReset
  *
