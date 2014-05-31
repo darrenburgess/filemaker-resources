@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462453e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[TriggersAreActive(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="6" functionArity="0" visible="True" parameters="" name="TriggersAreActive"><Calculation>/**
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42022013]]>    </Version>
+    <Comment/>
+    <SourceWindowName/>
+    <Class>XMFN</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>3.462453e+9</ClipTimeStamp>
+    <ClipAuthor/>
+    <clipboardAsText>
+<![CDATA[TriggersAreActive(  )]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <CustomFunction functionArity="0" id="6" name="TriggersAreActive" parameters="" visible="True">
+                <Calculation>/**
  * =====================================
  * TriggersAreActive
  *
@@ -32,4 +47,9 @@
  * Supressible Triggered Scripts Best Practice: http://filemakerstandards.org/display/bp/Suppressible+Triggered+Scripts
  * =====================================
  */
-not $$~DISABLETRIGGERS</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+not $$~DISABLETRIGGERS</Calculation>
+            </CustomFunction>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>

@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462515e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[SQLTableName( field )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="71" functionArity="1" visible="True" parameters="field" name="SQLTableName"><Calculation>/**
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42022013]]>    </Version>
+    <Comment/>
+    <SourceWindowName/>
+    <Class>XMFN</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>3.462515e+9</ClipTimeStamp>
+    <ClipAuthor/>
+    <clipboardAsText>
+<![CDATA[SQLTableName( field )]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <CustomFunction functionArity="1" id="71" name="SQLTableName" parameters="field" visible="True">
+                <Calculation>/**
  * =====================================
  * SQLTableName ( field )
  *
@@ -20,14 +35,18 @@
  * Based on a function by Todd Geist.
  * =====================================
  */
-
 Quote (
 	GetValue (
 		Substitute (
 			GetFieldName ( field ) ;
-			"::" ;
+			&quot;::&quot; ;
 			¶
 			) ;
 		1
 	)
-)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+)</Calculation>
+            </CustomFunction>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>

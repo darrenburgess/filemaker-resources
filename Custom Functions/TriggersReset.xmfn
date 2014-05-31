@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42052142]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>-2.147484e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[TriggersReset(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="9" functionArity="0" visible="True" parameters="" name="TriggersReset"><Calculation>/**
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42052142]]>    </Version>
+    <Comment/>
+    <SourceWindowName/>
+    <Class>XMFN</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>-2.147484e+9</ClipTimeStamp>
+    <ClipAuthor/>
+    <clipboardAsText>
+<![CDATA[TriggersReset(  )]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <CustomFunction functionArity="0" id="9" name="TriggersReset" parameters="" visible="True">
+                <Calculation>/**
  * =====================================
  * TriggersReset
  *
@@ -10,7 +25,7 @@
  * suppressed, a script called via trigger should use the TriggersAreActive
  * function to decide whether or not to run.
  *
- * RETURNS: "" (null)
+ * RETURNS: &quot;&quot; (null)
  *
  * PARAMETERS: none
  *
@@ -29,10 +44,14 @@
  * Supressible Triggered Scripts Best Practice: http://filemakerstandards.org/display/bp/Suppressible+Triggered+Scripts
  * =====================================
  */
-
 Let ( [
-        $$~DISABLETRIGGERS.SCRIPTS = "";
-        $$~DISABLETRIGGERS = ""
+        $$~DISABLETRIGGERS.SCRIPTS = &quot;&quot;;
+        $$~DISABLETRIGGERS = &quot;&quot;
 ];
-        ""
-)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+        &quot;&quot;
+)</Calculation>
+            </CustomFunction>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>

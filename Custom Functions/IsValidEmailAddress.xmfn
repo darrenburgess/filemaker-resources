@@ -1,48 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42052142]]></Version><Comment></Comment><SourceWindowName><![CDATA[Manage Custom Functions for “Avail_Solutions_Web”]]></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.484305e+9</ClipTimeStamp><ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor><clipboardAsText><![CDATA[IsValidEmailAddress( theEmail )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="9" functionArity="1" visible="True" parameters="theEmail" name="IsValidEmailAddress"><Calculation>Let (
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42052142]]>    </Version>
+    <Comment/>
+    <SourceWindowName>
+<![CDATA[Manage Custom Functions for “Avail_Solutions_Web”]]>    </SourceWindowName>
+    <Class>XMFN</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>3.484305e+9</ClipTimeStamp>
+    <ClipAuthor>
+<![CDATA[darrenburgess]]>    </ClipAuthor>
+    <clipboardAsText>
+<![CDATA[IsValidEmailAddress( theEmail )]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <CustomFunction functionArity="1" id="9" name="IsValidEmailAddress" parameters="theEmail" visible="True">
+                <Calculation>Let (
     [
-    _validDomainCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-." ;
-    _invalidLocalCharacters = "!\"#$%&amp;'*,/:;&lt;&gt;?@[\]^`{}|~" ; // from http://www.remote.org/jochen/mail/info/chars.html
-    _theLocalPart = Left ( theEmail ; Position ( theEmail ; "@" ; 1; 1 ) - 1 ) ;
-    _theDomainPart =  Right ( theEmail ; Length ( theEmail ) - Position ( theEmail ; "@" ; 1; 1 )  ) ;
-    _theTopLevelDomain = RightWords ( Substitute ( _theDomainPart ; "." ; " " ) ; 1 ) ;
-    _ValidTopLevelDomains = "AC¶AD¶AE¶AERO¶AF¶AG¶AI¶AL¶AM¶AN¶AO¶AQ¶AR¶ARPA¶AS¶AT¶AU¶AW¶AZ¶BA¶BB¶BD¶BE¶BF¶BG¶BH¶BI¶BIZ¶BJ¶BM¶BN¶BO¶BR¶BS¶BT¶BV¶BW¶BY¶BZ¶CA¶CC¶CD¶CF¶CG¶CH¶CI¶CK¶CL¶CM¶CN¶CO¶COM¶COOP¶CR¶CU¶CV¶CX¶CY¶CZ¶DE¶DJ¶DK¶DM¶DO¶DZ¶EC¶EDU¶EE¶EG¶ER¶ES¶ET¶EU¶FI¶FJ¶FK¶FM¶FO¶FR¶GA¶GB¶GD¶GE¶GF¶GG¶GH¶GI¶GL¶GM¶GN¶GOV¶GP¶GQ¶GR¶GS¶GT¶GU¶GW¶GY¶HK¶HM¶HN¶HR¶HT¶HU¶ID¶IE¶IL¶IM¶IN¶INFO¶INT¶IO¶IQ¶IR¶IS¶IT¶JE¶JM¶JO¶JOBS¶JP¶KE¶KG¶KH¶KI¶KM¶KN¶KR¶KW¶KY¶KZ¶LA¶LB¶LC¶LI¶LK¶LR¶LS¶LT¶LU¶LV¶LY¶MA¶MC¶MD¶MG¶MH¶MIL¶MK¶ML¶MM¶MN¶MO¶MP¶MQ¶MR¶MS¶MT¶MU¶MUSEUM¶MV¶MW¶MX¶MY¶MZ¶NA¶NAME¶NC¶NE¶NET¶NF¶NG¶NI¶NL¶NO¶NP¶NR¶NU¶NZ¶OM¶ORG¶PA¶PE¶PF¶PG¶PH¶PK¶PL¶PM¶PN¶PR¶PRO¶PS¶PT¶PW¶PY¶QA¶RE¶RO¶RU¶RW¶SA¶SB¶SC¶SD¶SE¶SG¶SH¶SI¶SJ¶SK¶SL¶SM¶SN¶SO¶SR¶ST¶SU¶SV¶SY¶SZ¶TC¶TD¶TF¶TG¶TH¶TJ¶TK¶TL¶TM¶TN¶TO¶TP¶TR¶TRAVEL¶TT¶TV¶TW¶TZ¶UA¶UG¶UK¶UM¶US¶UY¶UZ¶VA¶VC¶VE¶VG¶VI¶VN¶VU¶WF¶WS¶YE¶YT¶YU¶ZA¶ZM¶ZW" 
+    _validDomainCharacters = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.&quot; ;
+    _invalidLocalCharacters = &quot;!\&quot;#$%&amp;'*,/:;&lt;&gt;?@[\]^`{}|~&quot; ; // from http://www.remote.org/jochen/mail/info/chars.html
+    _theLocalPart = Left ( theEmail ; Position ( theEmail ; &quot;@&quot; ; 1; 1 ) - 1 ) ;
+    _theDomainPart =  Right ( theEmail ; Length ( theEmail ) - Position ( theEmail ; &quot;@&quot; ; 1; 1 )  ) ;
+    _theTopLevelDomain = RightWords ( Substitute ( _theDomainPart ; &quot;.&quot; ; &quot; &quot; ) ; 1 ) ;
+    _ValidTopLevelDomains = &quot;AC¶AD¶AE¶AERO¶AF¶AG¶AI¶AL¶AM¶AN¶AO¶AQ¶AR¶ARPA¶AS¶AT¶AU¶AW¶AZ¶BA¶BB¶BD¶BE¶BF¶BG¶BH¶BI¶BIZ¶BJ¶BM¶BN¶BO¶BR¶BS¶BT¶BV¶BW¶BY¶BZ¶CA¶CC¶CD¶CF¶CG¶CH¶CI¶CK¶CL¶CM¶CN¶CO¶COM¶COOP¶CR¶CU¶CV¶CX¶CY¶CZ¶DE¶DJ¶DK¶DM¶DO¶DZ¶EC¶EDU¶EE¶EG¶ER¶ES¶ET¶EU¶FI¶FJ¶FK¶FM¶FO¶FR¶GA¶GB¶GD¶GE¶GF¶GG¶GH¶GI¶GL¶GM¶GN¶GOV¶GP¶GQ¶GR¶GS¶GT¶GU¶GW¶GY¶HK¶HM¶HN¶HR¶HT¶HU¶ID¶IE¶IL¶IM¶IN¶INFO¶INT¶IO¶IQ¶IR¶IS¶IT¶JE¶JM¶JO¶JOBS¶JP¶KE¶KG¶KH¶KI¶KM¶KN¶KR¶KW¶KY¶KZ¶LA¶LB¶LC¶LI¶LK¶LR¶LS¶LT¶LU¶LV¶LY¶MA¶MC¶MD¶MG¶MH¶MIL¶MK¶ML¶MM¶MN¶MO¶MP¶MQ¶MR¶MS¶MT¶MU¶MUSEUM¶MV¶MW¶MX¶MY¶MZ¶NA¶NAME¶NC¶NE¶NET¶NF¶NG¶NI¶NL¶NO¶NP¶NR¶NU¶NZ¶OM¶ORG¶PA¶PE¶PF¶PG¶PH¶PK¶PL¶PM¶PN¶PR¶PRO¶PS¶PT¶PW¶PY¶QA¶RE¶RO¶RU¶RW¶SA¶SB¶SC¶SD¶SE¶SG¶SH¶SI¶SJ¶SK¶SL¶SM¶SN¶SO¶SR¶ST¶SU¶SV¶SY¶SZ¶TC¶TD¶TF¶TG¶TH¶TJ¶TK¶TL¶TM¶TN¶TO¶TP¶TR¶TRAVEL¶TT¶TV¶TW¶TZ¶UA¶UG¶UK¶UM¶US¶UY¶UZ¶VA¶VC¶VE¶VG¶VI¶VN¶VU¶WF¶WS¶YE¶YT¶YU¶ZA¶ZM¶ZW&quot; 
     ] ;
-
     Case (
-        IsEmpty ( theEmail ) ; "no value supplied" ;
-        PatternCount ( theEmail ; "@" ) &lt;&gt; 1 ; "invalid address" ; 
-        PatternCount ( _theDomainPart ; "." ) = 0 ; "invalid formatting" ;
+        IsEmpty ( theEmail ) ; &quot;no value supplied&quot; ;
+        PatternCount ( theEmail ; &quot;@&quot; ) &lt;&gt; 1 ; &quot;invalid address&quot; ; 
+        PatternCount ( _theDomainPart ; &quot;.&quot; ) = 0 ; &quot;invalid formatting&quot; ;
         Length ( Filter ( _theLocalPart ; _invalidLocalCharacters ) ) ;
-            "invalid characters in the local part" ;
+            &quot;invalid characters in the local part&quot; ;
         Length ( Filter ( _theDomainPart ; _validDomainCharacters ) ) &lt;&gt; Length ( _theDomainPart ) ;
-            "invalid characters in the domain part" ;
-        Left ( _theLocalPart ; 1) = "." or
-            Right ( _theLocalPart ; 1 ) = "." or
-            Left ( _theDomainPart ; 1 ) = "." or
-            Right ( _theDomainPart ; 1 ) = "." ;
-            "invalid formatting" ;
-       IsEmpty ( FilterValues ( _theTopLevelDomain ; _ValidTopLevelDomains ) ) ; "invalid top level domain" ;
-        
+            &quot;invalid characters in the domain part&quot; ;
+        Left ( _theLocalPart ; 1) = &quot;.&quot; or
+            Right ( _theLocalPart ; 1 ) = &quot;.&quot; or
+            Left ( _theDomainPart ; 1 ) = &quot;.&quot; or
+            Right ( _theDomainPart ; 1 ) = &quot;.&quot; ;
+            &quot;invalid formatting&quot; ;
+       IsEmpty ( FilterValues ( _theTopLevelDomain ; _ValidTopLevelDomains ) ) ; &quot;invalid top level domain&quot; ;
         1
     )
 )
-
-
 /*
 Name:
 EmailIsValid
-
 History:
 Created by Paul Turnbull
 Creation Date: 13-10-2005
 Modified Date: 13-11-2005 paul@fourofus.ca - fixed numerous bugs.
-
 Purpose: Returns True if the email supplied is valid an error message if it is not.
-
 Parameters:
 theEmail
-
 Important Notes:
 List of TLDs from http://data.iana.org/TLD/tlds-alpha-by-domain.txt
 Will not handle urls in the form contact@domain.com/some.name although you could edit to handle this if you like.
-*/</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+*/</Calculation>
+            </CustomFunction>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>

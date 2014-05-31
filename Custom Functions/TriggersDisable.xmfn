@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462514e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[TriggersDisable(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="7" functionArity="0" visible="True" parameters="" name="TriggersDisable"><Calculation>/**
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42022013]]>    </Version>
+    <Comment/>
+    <SourceWindowName/>
+    <Class>XMFN</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>3.462514e+9</ClipTimeStamp>
+    <ClipAuthor/>
+    <clipboardAsText>
+<![CDATA[TriggersDisable(  )]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <CustomFunction functionArity="0" id="7" name="TriggersDisable" parameters="" visible="True">
+                <Calculation>/**
  * =====================================
  * TriggersDisable
  *
@@ -39,13 +54,12 @@
  * Supressible Triggered Scripts Best Practice: http://filemakerstandards.org/display/bp/Suppressible+Triggered+Scripts
  * =====================================
  */
-
 Let ( [
         ~scriptName = Get ( ScriptName );
         ~scriptIsRunning = not IsEmpty ( ~scriptName );
         $$~DISABLETRIGGERS.SCRIPTS =
                 If ( ~scriptIsRunning;
-                        ~scriptName &amp; "¶" &amp; $$~DISABLETRIGGERS.SCRIPTS;
+                        ~scriptName &amp; &quot;¶&quot; &amp; $$~DISABLETRIGGERS.SCRIPTS;
                         /*else*/ $$~DISABLETRIGGERS.SCRIPTS
                 );
         $$~DISABLETRIGGERS =
@@ -55,4 +69,9 @@ Let ( [
                 )
 ];
         ~scriptIsRunning
-)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+)</Calculation>
+            </CustomFunction>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>

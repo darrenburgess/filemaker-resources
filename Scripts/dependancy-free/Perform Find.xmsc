@@ -1,1 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMSC</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>-2.147484e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[Perform Find]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><Script includeInMenu="False" runFullAccess="False" id="49" name="Perform Find" clipID="500696"><Step enable="True" id="89" name="Comment" clipID="380991"/><Step enable="True" id="89" name="Comment" clipID="591503"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment" clipID="515594"><Text>   Purpose:		Process the created find request, returns error</Text></Step><Step enable="True" id="89" name="Comment" clipID="811591"><Text>   Parameters:	</Text></Step><Step enable="True" id="89" name="Comment" clipID="94399"><Text>   Called From:	any script generally, after that script sets up a find request.</Text></Step><Step enable="True" id="89" name="Comment" clipID="619998"><Text>   Author:	        Darren Burgess</Text></Step><Step enable="True" id="89" name="Comment" clipID="471878"><Text>   Revision:		Last changed 20130919 by DB</Text></Step><Step enable="True" id="89" name="Comment" clipID="407345"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment" clipID="519281"/><Step enable="True" id="86" name="Set Error Capture" clipID="574385"><Set state="True"/></Step><Step enable="True" id="28" name="Perform Find" clipID="7004"><Restore state="False"/></Step><Step enable="True" id="141" name="Set Variable" clipID="392185"><Value><Calculation>Get ( LastError )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$error</Name></Step><Step enable="True" id="86" name="Set Error Capture" clipID="705167"><Set state="False"/></Step><Step enable="True" id="89" name="Comment" clipID="135889"/><Step enable="True" id="103" name="Exit Script" clipID="604571"><Calculation>$error</Calculation></Step><Step enable="True" id="89" name="Comment" clipID="338991"/></Script></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42022013]]>    </Version>
+    <Comment/>
+    <SourceWindowName/>
+    <Class>XMSC</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>-2.147484e+9</ClipTimeStamp>
+    <ClipAuthor/>
+    <clipboardAsText>
+<![CDATA[Perform Find]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <Script clipID="500696" id="49" includeInMenu="False" name="Perform Find" runFullAccess="False">
+                <Step clipID="380991" enable="True" id="89" name="Comment"/>
+                <Step clipID="591503" enable="True" id="89" name="Comment">
+                    <Text>  ======================================================</Text>
+                </Step>
+                <Step clipID="515594" enable="True" id="89" name="Comment">
+                    <Text>   Purpose:		Process the created find request, returns error</Text>
+                </Step>
+                <Step clipID="811591" enable="True" id="89" name="Comment">
+                    <Text>   Parameters:	</Text>
+                </Step>
+                <Step clipID="94399" enable="True" id="89" name="Comment">
+                    <Text>   Called From:	any script generally, after that script sets up a find request.</Text>
+                </Step>
+                <Step clipID="619998" enable="True" id="89" name="Comment">
+                    <Text>   Author:	        Darren Burgess</Text>
+                </Step>
+                <Step clipID="471878" enable="True" id="89" name="Comment">
+                    <Text>   Revision:		Last changed 20130919 by DB</Text>
+                </Step>
+                <Step clipID="407345" enable="True" id="89" name="Comment">
+                    <Text>  ======================================================</Text>
+                </Step>
+                <Step clipID="519281" enable="True" id="89" name="Comment"/>
+                <Step clipID="574385" enable="True" id="86" name="Set Error Capture">
+                    <Set state="True"/>
+                </Step>
+                <Step clipID="7004" enable="True" id="28" name="Perform Find">
+                    <Restore state="False"/>
+                </Step>
+                <Step clipID="392185" enable="True" id="141" name="Set Variable">
+                    <Value>
+                        <Calculation>Get ( LastError )</Calculation>
+                    </Value>
+                    <Repetition>
+                        <Calculation>1</Calculation>
+                    </Repetition>
+                    <Name>$error</Name>
+                </Step>
+                <Step clipID="705167" enable="True" id="86" name="Set Error Capture">
+                    <Set state="False"/>
+                </Step>
+                <Step clipID="135889" enable="True" id="89" name="Comment"/>
+                <Step clipID="604571" enable="True" id="103" name="Exit Script">
+                    <Calculation>$error</Calculation>
+                </Step>
+                <Step clipID="338991" enable="True" id="89" name="Comment"/>
+            </Script>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>

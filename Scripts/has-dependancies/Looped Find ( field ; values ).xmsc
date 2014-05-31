@@ -1,2 +1,108 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMSC</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462515e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[Looped Find ( field; values )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><Script includeInMenu="False" runFullAccess="False" id="40" name="Looped Find ( field; values )" clipID="621858"><Step enable="True" id="89" name="Comment" clipID="285660"/><Step enable="True" id="89" name="Comment" clipID="334973"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment" clipID="198484"><Text>   Purpose:		looped find request for multiple values on one field
-</Text></Step><Step enable="True" id="89" name="Comment" clipID="987838"><Text>   Parameters:	</Text></Step><Step enable="True" id="89" name="Comment" clipID="566570"><Text>   Called From:	subscript</Text></Step><Step enable="True" id="89" name="Comment" clipID="646239"><Text>   Author:	        Darren Burgess</Text></Step><Step enable="True" id="89" name="Comment" clipID="987923"><Text>   Revision:		Last changed 20130909 by DB</Text></Step><Step enable="True" id="89" name="Comment" clipID="579929"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment" clipID="363589"/><Step enable="True" id="68" name="If" clipID="507816"><Calculation>#AssignScriptParameters</Calculation></Step><Step enable="True" id="141" name="Set Variable" clipID="370279"><Value><Calculation>ValueCount ( $values )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$valuecount</Name></Step><Step enable="True" id="22" name="Enter Find Mode" clipID="884490"><Pause state="False"/><Restore state="False"/></Step><Step enable="True" id="141" name="Set Variable" clipID="180475"><Value><Calculation>1</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$i</Name></Step><Step enable="True" id="71" name="Loop" clipID="451979"/><Step enable="True" id="147" name="Set Field By Name" clipID="81922"><Result><Calculation>GetValue ( $values ; $i )</Calculation></Result><TargetName><Calculation>$field</Calculation></TargetName></Step><Step enable="True" id="72" name="Exit Loop If" clipID="649254"><Calculation>Let ( $i = $i + 1 ; If ( $i &gt; $valueCount ; Let ( $i = "" ; True ) ) )</Calculation></Step><Step enable="True" id="7" name="New Record/Request" clipID="816257"/><Step enable="True" id="73" name="End Loop" clipID="461567"/><Step enable="True" id="89" name="Comment" clipID="911257"/><Step enable="True" id="86" name="Set Error Capture" clipID="353391"><Set state="True"/></Step><Step enable="True" id="28" name="Perform Find" clipID="154121"><Restore state="False"/></Step><Step enable="True" id="141" name="Set Variable" clipID="392"><Value><Calculation>Get ( LastError )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$error</Name></Step><Step enable="True" id="86" name="Set Error Capture" clipID="425455"><Set state="False"/></Step><Step enable="True" id="70" name="End If" clipID="93553"/><Step enable="True" id="89" name="Comment" clipID="410405"/><Step enable="True" id="103" name="Exit Script" clipID="632390"><Calculation>$error</Calculation></Step><Step enable="True" id="89" name="Comment" clipID="32780"/></Script></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42022013]]>    </Version>
+    <Comment/>
+    <SourceWindowName/>
+    <Class>XMSC</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>3.462515e+9</ClipTimeStamp>
+    <ClipAuthor/>
+    <clipboardAsText>
+<![CDATA[Looped Find ( field; values )]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <Script clipID="621858" id="40" includeInMenu="False" name="Looped Find ( field; values )" runFullAccess="False">
+                <Step clipID="285660" enable="True" id="89" name="Comment"/>
+                <Step clipID="334973" enable="True" id="89" name="Comment">
+                    <Text>  ======================================================</Text>
+                </Step>
+                <Step clipID="198484" enable="True" id="89" name="Comment">
+                    <Text>   Purpose:		looped find request for multiple values on one field
+</Text>
+                </Step>
+                <Step clipID="987838" enable="True" id="89" name="Comment">
+                    <Text>   Parameters:	</Text>
+                </Step>
+                <Step clipID="566570" enable="True" id="89" name="Comment">
+                    <Text>   Called From:	subscript</Text>
+                </Step>
+                <Step clipID="646239" enable="True" id="89" name="Comment">
+                    <Text>   Author:	        Darren Burgess</Text>
+                </Step>
+                <Step clipID="987923" enable="True" id="89" name="Comment">
+                    <Text>   Revision:		Last changed 20130909 by DB</Text>
+                </Step>
+                <Step clipID="579929" enable="True" id="89" name="Comment">
+                    <Text>  ======================================================</Text>
+                </Step>
+                <Step clipID="363589" enable="True" id="89" name="Comment"/>
+                <Step clipID="507816" enable="True" id="68" name="If">
+                    <Calculation>#AssignScriptParameters</Calculation>
+                </Step>
+                <Step clipID="370279" enable="True" id="141" name="Set Variable">
+                    <Value>
+                        <Calculation>ValueCount ( $values )</Calculation>
+                    </Value>
+                    <Repetition>
+                        <Calculation>1</Calculation>
+                    </Repetition>
+                    <Name>$valuecount</Name>
+                </Step>
+                <Step clipID="884490" enable="True" id="22" name="Enter Find Mode">
+                    <Pause state="False"/>
+                    <Restore state="False"/>
+                </Step>
+                <Step clipID="180475" enable="True" id="141" name="Set Variable">
+                    <Value>
+                        <Calculation>1</Calculation>
+                    </Value>
+                    <Repetition>
+                        <Calculation>1</Calculation>
+                    </Repetition>
+                    <Name>$i</Name>
+                </Step>
+                <Step clipID="451979" enable="True" id="71" name="Loop"/>
+                <Step clipID="81922" enable="True" id="147" name="Set Field By Name">
+                    <Result>
+                        <Calculation>GetValue ( $values ; $i )</Calculation>
+                    </Result>
+                    <TargetName>
+                        <Calculation>$field</Calculation>
+                    </TargetName>
+                </Step>
+                <Step clipID="649254" enable="True" id="72" name="Exit Loop If">
+                    <Calculation>Let ( $i = $i + 1 ; If ( $i &gt; $valueCount ; Let ( $i = &quot;&quot; ; True ) ) )</Calculation>
+                </Step>
+                <Step clipID="816257" enable="True" id="7" name="New Record/Request"/>
+                <Step clipID="461567" enable="True" id="73" name="End Loop"/>
+                <Step clipID="911257" enable="True" id="89" name="Comment"/>
+                <Step clipID="353391" enable="True" id="86" name="Set Error Capture">
+                    <Set state="True"/>
+                </Step>
+                <Step clipID="154121" enable="True" id="28" name="Perform Find">
+                    <Restore state="False"/>
+                </Step>
+                <Step clipID="392" enable="True" id="141" name="Set Variable">
+                    <Value>
+                        <Calculation>Get ( LastError )</Calculation>
+                    </Value>
+                    <Repetition>
+                        <Calculation>1</Calculation>
+                    </Repetition>
+                    <Name>$error</Name>
+                </Step>
+                <Step clipID="425455" enable="True" id="86" name="Set Error Capture">
+                    <Set state="False"/>
+                </Step>
+                <Step clipID="93553" enable="True" id="70" name="End If"/>
+                <Step clipID="410405" enable="True" id="89" name="Comment"/>
+                <Step clipID="632390" enable="True" id="103" name="Exit Script">
+                    <Calculation>$error</Calculation>
+                </Step>
+                <Step clipID="32780" enable="True" id="89" name="Comment"/>
+            </Script>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>

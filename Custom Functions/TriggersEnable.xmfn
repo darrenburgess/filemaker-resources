@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462514e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[TriggersEnable(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="8" functionArity="0" visible="True" parameters="" name="TriggersEnable"><Calculation>/**
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42022013]]>    </Version>
+    <Comment/>
+    <SourceWindowName/>
+    <Class>XMFN</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>3.462514e+9</ClipTimeStamp>
+    <ClipAuthor/>
+    <clipboardAsText>
+<![CDATA[TriggersEnable(  )]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <CustomFunction functionArity="0" id="8" name="TriggersEnable" parameters="" visible="True">
+                <Calculation>/**
  * =====================================
  * TriggersEnable
  *
@@ -39,20 +54,24 @@
  * Supressible Triggered Scripts Best Practice: http://filemakerstandards.org/display/bp/Suppressible+Triggered+Scripts
  * =====================================
  */
-
 Let ( [
         ~lastScript = GetValue ( $$~DISABLETRIGGERS.SCRIPTS ; 1 );
         ~enableTriggers = Get ( ScriptName ) = ~lastScript; //boolean indicating script name match
         $$~DISABLETRIGGERS.SCRIPTS =
                 If ( ~enableTriggers;
                         RightValues (
-                        	$$~DISABLETRIGGERS.SCRIPTS;
-                        	ValueCount ( $$~DISABLETRIGGERS.SCRIPTS ) - 1
+                                $$~DISABLETRIGGERS.SCRIPTS;
+                                ValueCount ( $$~DISABLETRIGGERS.SCRIPTS ) - 1
                         );
                         /*else*/ $$~DISABLETRIGGERS.SCRIPTS
                 );
         ~scriptCount = ValueCount ( $$~DISABLETRIGGERS.SCRIPTS );
-        $$~DISABLETRIGGERS = If ( ~scriptCount ; True ; /*else*/ "" )
+        $$~DISABLETRIGGERS = If ( ~scriptCount ; True ; /*else*/ &quot;&quot; )
 ];
         ~enableTriggers or not ~scriptCount //ScriptName was found and removed, or there are no suppressing scripts
-)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+)</Calculation>
+            </CustomFunction>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>

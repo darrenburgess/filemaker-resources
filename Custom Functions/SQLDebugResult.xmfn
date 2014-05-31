@@ -1,45 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42022013]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.462515e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[SQLDebugResult( _executeSQL )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="41" functionArity="1" visible="True" parameters="_executeSQL" name="SQLDebugResult"><Calculation>If ( 
-
-
-
+<?xml version="1.0" ?>
+<FMClipboard>
+    <Version>
+<![CDATA[42022013]]>    </Version>
+    <Comment/>
+    <SourceWindowName/>
+    <Class>XMFN</Class>
+    <ClipVersion>1</ClipVersion>
+    <ClipTimeStamp>3.462515e+9</ClipTimeStamp>
+    <ClipAuthor/>
+    <clipboardAsText>
+<![CDATA[SQLDebugResult( _executeSQL )]]>    </clipboardAsText>
+    <Clipboard>
+        <fmxmlsnippet type="FMObjectList">
+            <CustomFunction functionArity="1" id="41" name="SQLDebugResult" parameters="_executeSQL" visible="True">
+                <Calculation>If ( 
 //the sql call results in an error, return empty so the error will be returned
-
-_executeSQL = "?" ; "" ; 
-
-
-
+_executeSQL = &quot;?&quot; ; &quot;&quot; ; 
 //the sql call is executed correctly, just return the result
-
 _executeSQL
-
 )
-
-
-
 // ===================================
-
 /*
-
-
-
     This function is published on FileMaker Custom Functions
-
     to check for updates and provide feedback and bug reports
-
     please visit http://www.fmfunctions.com/fid/335
-
-
-
     Prototype: sql.debug( _executeSQL )
-
     Function Author: Andries Heylen (http://www.fmfunctions.com/mid/57)
-
     Last updated: 28 July 2012
-
     Version: 2.2
-
-
-
 */
-
-// ===================================</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+// ===================================</Calculation>
+            </CustomFunction>
+        </fmxmlsnippet>
+    </Clipboard>
+    <Picture/>
+</FMClipboard>
