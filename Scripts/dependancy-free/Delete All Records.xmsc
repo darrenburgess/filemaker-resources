@@ -1,3 +1,111 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42052142]]></Version><Comment></Comment><SourceWindowName><![CDATA[Manage Scripts (NL Pharmaceutical (DARREN-PC))]]></SourceWindowName><Class>XMSC</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.489292e+9</ClipTimeStamp><ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor><clipboardAsText><![CDATA[Developer Delete All Records]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><Script includeInMenu="False" runFullAccess="False" id="792" name="Developer Delete All Records"><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text>==============================================</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Purpose:              Go to all layouts and delete all data</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Parameters:         none</Text></Step><Step enable="True" id="89" name="Comment"><Text>                              ---------------------------</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Called by:           manage scripts</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Author:               Darren Burgess</Text></Step><Step enable="True" id="89" name="Comment"><Text>   History:             
+<?xml version="1.0" encoding="UTF-8"?>
+<FMClipboard>
+	<Version><![CDATA[42052142]]></Version>
+	<Comment/>
+	<SourceWindowName><![CDATA[Manage Scripts (NL Pharmaceutical (DARREN-PC))]]></SourceWindowName>
+	<Class>XMSC</Class>
+	<ClipVersion>1</ClipVersion>
+	<ClipTimeStamp>3.489292e+9</ClipTimeStamp>
+	<ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor>
+	<clipboardAsText><![CDATA[Developer Delete All Records]]></clipboardAsText>
+	<Clipboard>
+		<fmxmlsnippet type="FMObjectList">
+			<Script id="792" includeInMenu="False" name="Developer Delete All Records" runFullAccess="False">
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="89" name="Comment">
+					<Text>==============================================</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Purpose:              Go to all layouts and delete all data</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Parameters:         none</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>---------------------------</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Called by:           manage scripts</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Author:               Darren Burgess</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>History:             
 
-Created 20120416  Darren Burgess</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Notes:                 Run on production file prior to upgrade</Text></Step><Step enable="True" id="89" name="Comment"><Text>==============================================</Text></Step><Step enable="True" id="89" name="Comment"/><Step enable="False" id="103" name="Exit Script"/><Step enable="True" id="89" name="Comment"/><Step enable="True" id="86" name="Set Error Capture"><Set state="True"/></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="LayoutNameByCalc"/><Layout id="0" name=""><Calculation>1</Calculation></Layout></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Get ( LayoutNumber )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$LayoutNumber</Name></Step><Step enable="True" id="71" name="Loop"/><Step enable="True" id="23" name="Show All Records"/><Step enable="True" id="10" name="Delete All Records"><NoInteract state="True"/></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>$LayoutNumber + 1</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$LayoutNumber</Name></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="LayoutNumberByCalc"/><Layout id="0" name=""><Calculation>$LayoutNumber</Calculation></Layout></Step><Step enable="True" id="72" name="Exit Loop If"><Calculation>Get ( LastError )  ≠ 0</Calculation></Step><Step enable="True" id="73" name="End Loop"/><Step enable="True" id="87" name="Show Custom Dialog"><Title><Calculation>"Delete all Complete"</Calculation></Title><Message><Calculation>"Complete"</Calculation></Message><Buttons><Button CommitState="False"><Calculation>"OK"</Calculation></Button><Button CommitState="False"/><Button CommitState="False"/></Buttons></Step><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"/></Script></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+Created 20120416  Darren Burgess</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Notes:                 Run on production file prior to upgrade</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>==============================================</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="False" id="103" name="Exit Script"/>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="86" name="Set Error Capture">
+					<Set state="True"/>
+				</Step>
+				<Step enable="True" id="6" name="Go to Layout">
+					<LayoutDestination value="LayoutNameByCalc"/>
+					<Layout id="0" name="">
+						<Calculation>1</Calculation>
+					</Layout>
+				</Step>
+				<Step enable="True" id="141" name="Set Variable">
+					<Value>
+						<Calculation>Get ( LayoutNumber )</Calculation>
+					</Value>
+					<Repetition>
+						<Calculation>1</Calculation>
+					</Repetition>
+					<Name>$LayoutNumber</Name>
+				</Step>
+				<Step enable="True" id="71" name="Loop"/>
+				<Step enable="True" id="23" name="Show All Records"/>
+				<Step enable="True" id="10" name="Delete All Records">
+					<NoInteract state="True"/>
+				</Step>
+				<Step enable="True" id="141" name="Set Variable">
+					<Value>
+						<Calculation>$LayoutNumber + 1</Calculation>
+					</Value>
+					<Repetition>
+						<Calculation>1</Calculation>
+					</Repetition>
+					<Name>$LayoutNumber</Name>
+				</Step>
+				<Step enable="True" id="6" name="Go to Layout">
+					<LayoutDestination value="LayoutNumberByCalc"/>
+					<Layout id="0" name="">
+						<Calculation>$LayoutNumber</Calculation>
+					</Layout>
+				</Step>
+				<Step enable="True" id="72" name="Exit Loop If">
+					<Calculation>Get ( LastError )  ≠ 0</Calculation>
+				</Step>
+				<Step enable="True" id="73" name="End Loop"/>
+				<Step enable="True" id="87" name="Show Custom Dialog">
+					<Title>
+						<Calculation>&quot;Delete all Complete&quot;</Calculation>
+					</Title>
+					<Message>
+						<Calculation>&quot;Complete&quot;</Calculation>
+					</Message>
+					<Buttons>
+						<Button CommitState="False">
+							<Calculation>&quot;OK&quot;</Calculation>
+						</Button>
+						<Button CommitState="False"/>
+						<Button CommitState="False"/>
+					</Buttons>
+				</Step>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="89" name="Comment"/>
+			</Script>
+		</fmxmlsnippet>
+	</Clipboard>
+	<Picture/>
+</FMClipboard>

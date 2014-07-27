@@ -1,1 +1,139 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42052142]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMSC</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.489293e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[ImportAllTables]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><Script includeInMenu="False" runFullAccess="False" id="794" name="ImportAllTables" clipID="327041"><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text>==============================================</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Purpose:              Import data exported by ExportAllTables script</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Parameters:         none</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Dependency:        Export directory on desktop</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Dependency:        Group all layouts/tables for export.  Add a layout called "ABORT SCRIPT" as the last layout in the group</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Dependency:        Fix the first goto layout step - assign to the first layout in the group</Text></Step><Step enable="True" id="89" name="Comment"><Text>                              ---------------------------</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Called by:           manage scripts</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Author:               Darren Burgess</Text></Step><Step enable="True" id="89" name="Comment"><Text>   History:             Created 20140727  Darren Burgess</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Notes:                 Run on production file prior to upgrade</Text></Step><Step enable="True" id="89" name="Comment"><Text>==============================================</Text></Step><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"/><Step enable="True" id="85" name="Allow User Abort"><Set state="True"/></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Get ( DesktopPath ) &amp; "Export/"</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$FilePath</Name></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="SelectedLayout"/><Layout id="398" name="DEV_Attorney"/></Step><Step enable="True" id="71" name="Loop"/><Step enable="True" id="141" name="Set Variable"><Value><Calculation>$FilePath &amp; Get ( LayoutTableName ) &amp; ".fmp12"</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$FileName</Name></Step><Step enable="True" id="86" name="Set Error Capture"><Set state="True"/></Step><Step enable="True" id="35" name="Import Records"><NoInteract state="False"/><Restore state="False"/><DataSourceType value="File"/><UniversalPathList>$FileName</UniversalPathList><ImportOptions CharacterSet="Macintosh" PreserveContainer="False" AutoEnter="True" SplitRepetitions="False" method="Add"/><Table id="1065716" name="DEV_CalendarColors"/><TargetFields><Field map="Import" id="2" name="Name"/><Field map="Import" id="3" name="ColorRBGValue"/><Field map="DoNotImport" id="4" name="ColorDisplay"/><Field map="Import" id="5" name="ColorDragTarget"/></TargetFields></Step><Step enable="True" id="68" name="If"><Calculation>Get ( LastError ) = 1</Calculation></Step><Step enable="True" id="103" name="Exit Script"/><Step enable="True" id="70" name="End If"/><Step enable="True" id="86" name="Set Error Capture"><Set state="False"/></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="LayoutNumberByCalc"/><Layout id="0" name=""><Calculation>Get ( LayoutNumber ) + 1</Calculation></Layout></Step><Step enable="True" id="72" name="Exit Loop If"><Calculation>Get ( LastError ) ≠ 0</Calculation></Step><Step enable="True" id="72" name="Exit Loop If"><Calculation>Get ( LayoutName ) = "ABORT SCRIPT"</Calculation></Step><Step enable="True" id="73" name="End Loop"/><Step enable="True" id="87" name="Show Custom Dialog"><Title><Calculation>"WARNING!!!"</Calculation></Title><Message><Calculation>"SERIAL ID'S MUST BE UPDATED AFTER RUNNING THIS SCRIPT"</Calculation></Message><Buttons><Button CommitState="True"><Calculation>"OK"</Calculation></Button><Button CommitState="False"/><Button CommitState="False"/></Buttons></Step><Step enable="True" id="89" name="Comment"/><Step enable="True" id="103" name="Exit Script"/><Step enable="True" id="89" name="Comment"/></Script></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+<?xml version="1.0" encoding="UTF-8"?>
+<FMClipboard>
+	<Version><![CDATA[42052142]]></Version>
+	<Comment/>
+	<SourceWindowName/>
+	<Class>XMSC</Class>
+	<ClipVersion>1</ClipVersion>
+	<ClipTimeStamp>3.489293e+9</ClipTimeStamp>
+	<ClipAuthor/>
+	<clipboardAsText><![CDATA[ImportAllTables]]></clipboardAsText>
+	<Clipboard>
+		<fmxmlsnippet type="FMObjectList">
+			<Script clipID="327041" id="794" includeInMenu="False" name="ImportAllTables" runFullAccess="False">
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="89" name="Comment">
+					<Text>==============================================</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Purpose:              Import data exported by ExportAllTables script</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Parameters:         none</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Dependency:        Export directory on desktop</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Dependency:        Group all layouts/tables for export.  Add a layout called &quot;ABORT SCRIPT&quot; as the last layout in the group</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Dependency:        Fix the first goto layout step - assign to the first layout in the group</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>---------------------------</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Called by:           manage scripts</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Author:               Darren Burgess</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>History:             Created 20140727  Darren Burgess</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Notes:                 Run on production file prior to upgrade</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>==============================================</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="85" name="Allow User Abort">
+					<Set state="True"/>
+				</Step>
+				<Step enable="True" id="141" name="Set Variable">
+					<Value>
+						<Calculation>Get ( DesktopPath ) &amp; &quot;Export/&quot;</Calculation>
+					</Value>
+					<Repetition>
+						<Calculation>1</Calculation>
+					</Repetition>
+					<Name>$FilePath</Name>
+				</Step>
+				<Step enable="True" id="6" name="Go to Layout">
+					<LayoutDestination value="SelectedLayout"/>
+					<Layout id="398" name="DEV_Attorney"/>
+				</Step>
+				<Step enable="True" id="71" name="Loop"/>
+				<Step enable="True" id="141" name="Set Variable">
+					<Value>
+						<Calculation>$FilePath &amp; Get ( LayoutTableName ) &amp; &quot;.fmp12&quot;</Calculation>
+					</Value>
+					<Repetition>
+						<Calculation>1</Calculation>
+					</Repetition>
+					<Name>$FileName</Name>
+				</Step>
+				<Step enable="True" id="86" name="Set Error Capture">
+					<Set state="True"/>
+				</Step>
+				<Step enable="True" id="35" name="Import Records">
+					<NoInteract state="False"/>
+					<Restore state="False"/>
+					<DataSourceType value="File"/>
+					<UniversalPathList>$FileName</UniversalPathList>
+					<ImportOptions AutoEnter="True" CharacterSet="Macintosh" PreserveContainer="False" SplitRepetitions="False" method="Add"/>
+					<Table id="1065716" name="DEV_CalendarColors"/>
+					<TargetFields>
+						<Field id="2" map="Import" name="Name"/>
+						<Field id="3" map="Import" name="ColorRBGValue"/>
+						<Field id="4" map="DoNotImport" name="ColorDisplay"/>
+						<Field id="5" map="Import" name="ColorDragTarget"/>
+					</TargetFields>
+				</Step>
+				<Step enable="True" id="68" name="If">
+					<Calculation>Get ( LastError ) = 1</Calculation>
+				</Step>
+				<Step enable="True" id="103" name="Exit Script"/>
+				<Step enable="True" id="70" name="End If"/>
+				<Step enable="True" id="86" name="Set Error Capture">
+					<Set state="False"/>
+				</Step>
+				<Step enable="True" id="6" name="Go to Layout">
+					<LayoutDestination value="LayoutNumberByCalc"/>
+					<Layout id="0" name="">
+						<Calculation>Get ( LayoutNumber ) + 1</Calculation>
+					</Layout>
+				</Step>
+				<Step enable="True" id="72" name="Exit Loop If">
+					<Calculation>Get ( LastError ) ≠ 0</Calculation>
+				</Step>
+				<Step enable="True" id="72" name="Exit Loop If">
+					<Calculation>Get ( LayoutName ) = &quot;ABORT SCRIPT&quot;</Calculation>
+				</Step>
+				<Step enable="True" id="73" name="End Loop"/>
+				<Step enable="True" id="87" name="Show Custom Dialog">
+					<Title>
+						<Calculation>&quot;WARNING!!!&quot;</Calculation>
+					</Title>
+					<Message>
+						<Calculation>&quot;SERIAL ID'S MUST BE UPDATED AFTER RUNNING THIS SCRIPT&quot;</Calculation>
+					</Message>
+					<Buttons>
+						<Button CommitState="True">
+							<Calculation>&quot;OK&quot;</Calculation>
+						</Button>
+						<Button CommitState="False"/>
+						<Button CommitState="False"/>
+					</Buttons>
+				</Step>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="103" name="Exit Script"/>
+				<Step enable="True" id="89" name="Comment"/>
+			</Script>
+		</fmxmlsnippet>
+	</Clipboard>
+	<Picture/>
+</FMClipboard>
