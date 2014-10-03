@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42062300]]></Version><Comment></Comment><SourceWindowName><![CDATA[Manage Custom Functions for “Anderson2X_data”]]></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.491901e+9</ClipTimeStamp><ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor><clipboardAsText><![CDATA[PhoneMask( number;label )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="21" functionArity="2" visible="True" parameters="number;label" name="PhoneMask"><Calculation>Let( [
+
+	TempNum= Filter(number; "0123456789");
+
+	Num = If( Left( tempnum ; 1 ) = 1 ; Middle( tempnum ; 2 ; 99) ; tempnum);   
+ 
+	NumLength = Length ( Num ) ;
+
+	Phone10 = 	"("&amp; Left(num;3) &amp;   	// if it exceeds a length assume it is an extension 
+				") "&amp; Middle(num ; 4 ; 3) &amp;
+				"-"&amp; Middle(num ; 7 ; 4) &amp;
+				If(Length(num)&gt; 10 ; " x" &amp; Middle(num ; 11 ; 99) ; NULL) ;
+
+	Phone7 = 		Left(num;3) &amp;   	// if it exceeds a length assume it is an extension 
+				"-" &amp; Middle(num ; 4 ; 4) &amp;
+				If(Length(num)&gt; 7 ; " x" &amp; Middle(num ;8 ; 99);"") 
+]; 
+
+Case (
+	label = "International" ; number ;   // international numbers get formatted as entered
+	Length ( Num ) &lt; 7; 	TextColor ( Num ; RGB ( 255 ; 0 ; 0 ) );        // if number is to short less than  7 digits display it in red as error
+	Length ( Num ) &lt; 10;  Phone7 ; 
+	Phone10
+
+) // end Case
+
+
+) // end Let</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

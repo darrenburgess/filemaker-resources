@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42062300]]></Version><Comment></Comment><SourceWindowName><![CDATA[Manage Custom Functions for “Anderson2X_data”]]></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.491901e+9</ClipTimeStamp><ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor><clipboardAsText><![CDATA[#AssignScriptResults(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="4" functionArity="0" visible="True" parameters="" name="#AssignScriptResults"><Calculation>// This is a reserved function name. You can use this custom function as provided or change to your own. The following is the suggested function
+
+
+/**
+ * =====================================
+ * #AssignScriptResults
+ *
+ * PURPOSE:
+ * #AssignScriptResults uses the current script result (treated as if generated
+ * by the # function) to declare and populate a series of locally-scoped script
+ * variables. This function is equivalent to #Assign ( Get ( ScriptResult ) ).
+ *
+ * RETURNS:
+ * True (1) when the script result is a valid set of name-value pairs (which
+ * includes the empty string); False (0) otherwise.
+ *
+ * PARAMETERS: none
+ *
+ * DEPENDENCIES: none
+ *
+ * NOTE:
+ * To be accessible outside this function, variable declarations in the script
+ * result must use the $- or $$-prefixed notation for FileMaker variables.
+ * This function does not handle that for you.
+ *
+ * HISTORY:
+ * MODIFIED on 2010-10-04 by jeremy@kyologic.com to return explicit True or
+ * False values indicating successful evaluation of the script result, and to
+ * fit syntax inspired by a comment on standards.filemakermagazine.com by
+ * Richard Dyce.
+ * CREATED on 2010-08-25 by Jeremy Bante of Kyo Logic (jeremy@kyologic.com).
+ * INSPIRED by an example in the FileMaker help documentation.
+ *
+ * REFERENCES:
+ * Script Parameter Interface Best Practice: http://filemakerstandards.org/pages/viewpage.action?pageId=557462
+ * =====================================
+ */
+ 
+Let (
+        ~evaluateString = //string to evaluate to declare variables
+                "Let ( [¶"
+                &amp; Get ( ScriptResult )
+                &amp; "$void = $void" //terminating variable to keep semicolon-delimited sytax in variableString consistent
+                &amp; "¶];¶" 
+                &amp; "True¶)";
+ 
+        //end variable definitions
+ 
+        Case (
+                IsValidExpression ( ~evaluateString );
+                        Evaluate ( ~evaluateString );
+ 
+                //else, ~evaluateString is not a valid expression...
+                        False //return error
+        )
+)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

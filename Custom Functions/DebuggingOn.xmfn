@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42062300]]></Version><Comment></Comment><SourceWindowName><![CDATA[Manage Custom Functions for “Anderson2X_data”]]></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.491901e+9</ClipTimeStamp><ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor><clipboardAsText><![CDATA[DebuggingOn(  )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="18" functionArity="0" visible="True" parameters="" name="DebuggingOn"><Calculation>True
+
+// set to True to turn on various debugging tools, such as on-screen utility windows</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
