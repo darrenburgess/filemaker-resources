@@ -1,1 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42062300]]></Version><Comment></Comment><SourceWindowName><![CDATA[Manage Scripts (Solarx_mobile (MightyFMS12))]]></SourceWindowName><Class>XMSC</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>-2.147484e+9</ClipTimeStamp><ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor><clipboardAsText><![CDATA[IsolateRecord]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><Script includeInMenu="False" runFullAccess="False" id="227" name="IsolateRecord" clipID="270711"><Step enable="True" id="89" name="Comment" clipID="381413"/><Step enable="True" id="89" name="Comment" clipID="187849"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment" clipID="671704"><Text>   Purpose:		Isolates the current record</Text></Step><Step enable="True" id="89" name="Comment" clipID="481936"><Text>   Parameters:	none</Text></Step><Step enable="True" id="89" name="Comment" clipID="891974"><Text>   Called From:	subscript</Text></Step><Step enable="True" id="89" name="Comment" clipID="975451"><Text>   Author:	        Darren Burgess</Text></Step><Step enable="True" id="89" name="Comment" clipID="871071"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment" clipID="586426"/><Step enable="True" id="23" name="Show All Records" clipID="354913"/><Step enable="True" id="25" name="Omit Record" clipID="485830"/><Step enable="True" id="27" name="Show Omitted Only" clipID="635908"/><Step enable="True" id="89" name="Comment" clipID="449925"/><Step enable="True" id="103" name="Exit Script" clipID="711769"/><Step enable="True" id="89" name="Comment" clipID="928073"/></Script></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+<?xml version="1.0" encoding="UTF-8"?>
+<FMClipboard>
+	<Version><![CDATA[42062300]]></Version>
+	<Comment/>
+	<SourceWindowName><![CDATA[Manage Scripts (Solarx_mobile (MightyFMS12))]]></SourceWindowName>
+	<Class>XMSC</Class>
+	<ClipVersion>1</ClipVersion>
+	<ClipTimeStamp>-2.147484e+9</ClipTimeStamp>
+	<ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor>
+	<clipboardAsText><![CDATA[IsolateRecord]]></clipboardAsText>
+	<Clipboard>
+		<fmxmlsnippet type="FMObjectList">
+			<Script clipID="270711" id="227" includeInMenu="False" name="IsolateRecord" runFullAccess="False">
+				<Step clipID="381413" enable="True" id="89" name="Comment"/>
+				<Step clipID="187849" enable="True" id="89" name="Comment">
+					<Text>======================================================</Text>
+				</Step>
+				<Step clipID="671704" enable="True" id="89" name="Comment">
+					<Text>Purpose:		Isolates the current record</Text>
+				</Step>
+				<Step clipID="481936" enable="True" id="89" name="Comment">
+					<Text>Parameters:	none</Text>
+				</Step>
+				<Step clipID="891974" enable="True" id="89" name="Comment">
+					<Text>Called From:	subscript</Text>
+				</Step>
+				<Step clipID="975451" enable="True" id="89" name="Comment">
+					<Text>Author:	        Darren Burgess</Text>
+				</Step>
+				<Step clipID="871071" enable="True" id="89" name="Comment">
+					<Text>======================================================</Text>
+				</Step>
+				<Step clipID="586426" enable="True" id="89" name="Comment"/>
+				<Step clipID="354913" enable="True" id="23" name="Show All Records"/>
+				<Step clipID="485830" enable="True" id="25" name="Omit Record"/>
+				<Step clipID="635908" enable="True" id="27" name="Show Omitted Only"/>
+				<Step clipID="449925" enable="True" id="89" name="Comment"/>
+				<Step clipID="711769" enable="True" id="103" name="Exit Script"/>
+				<Step clipID="928073" enable="True" id="89" name="Comment"/>
+			</Script>
+		</fmxmlsnippet>
+	</Clipboard>
+	<Picture/>
+</FMClipboard>

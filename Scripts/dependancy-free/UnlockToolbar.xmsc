@@ -1,1 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42062300]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMSC</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.491981e+9</ClipTimeStamp><ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor><clipboardAsText><![CDATA[Unlock]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><Script includeInMenu="False" runFullAccess="False" id="176" name="Unlock"><Step enable="True" id="89" name="Comment"/><Step enable="True" id="89" name="Comment"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Purpose:		Unlock toolbar</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Parameters:	none</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Called From:	Manually from Scripts menu</Text></Step><Step enable="True" id="89" name="Comment"><Text>   Author:	        Kirk Bowman</Text></Step><Step enable="True" id="89" name="Comment"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="Comment"/><Step enable="True" id="29" name="Show/Hide Toolbars"><Lock state="False"/><ShowHide value="Show"/></Step><Step enable="True" id="89" name="Comment"/><Step enable="True" id="103" name="Exit Script"/><Step enable="True" id="89" name="Comment"/></Script></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
+<?xml version="1.0" encoding="UTF-8"?>
+<FMClipboard>
+	<Version><![CDATA[42062300]]></Version>
+	<Comment/>
+	<SourceWindowName/>
+	<Class>XMSC</Class>
+	<ClipVersion>1</ClipVersion>
+	<ClipTimeStamp>3.491981e+9</ClipTimeStamp>
+	<ClipAuthor><![CDATA[darrenburgess]]></ClipAuthor>
+	<clipboardAsText><![CDATA[Unlock]]></clipboardAsText>
+	<Clipboard>
+		<fmxmlsnippet type="FMObjectList">
+			<Script id="176" includeInMenu="False" name="Unlock" runFullAccess="False">
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="89" name="Comment">
+					<Text>======================================================</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Purpose:		Unlock toolbar</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Parameters:	none</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Called From:	Manually from Scripts menu</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>Author:	        Kirk Bowman</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment">
+					<Text>======================================================</Text>
+				</Step>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="29" name="Show/Hide Toolbars">
+					<Lock state="False"/>
+					<ShowHide value="Show"/>
+				</Step>
+				<Step enable="True" id="89" name="Comment"/>
+				<Step enable="True" id="103" name="Exit Script"/>
+				<Step enable="True" id="89" name="Comment"/>
+			</Script>
+		</fmxmlsnippet>
+	</Clipboard>
+	<Picture/>
+</FMClipboard>
