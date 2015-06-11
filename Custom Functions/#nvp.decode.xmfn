@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[50000475]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.516884e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[#nvp.decode( input;key )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="14" functionArity="2" visible="True" parameters="input;key" name="#nvp.decode"><Calculation>Let ( [
+
+	  stCode 	= "&lt;?name:" &amp; key &amp; ":"
+	; endCode	= ":?&gt;"
+	; stPos	= Position ( input ; stCode ; 1 ; 1 ) + Length ( stCode ) + 10
+	; endPos	= Position ( input ; endCode ; stPos ; 1 )
+	; length	= endPos - stPos
+	] ;
+
+
+	Substitute ( Middle ( input ; stPos ; length ) ; "!!!" ; "¶" )
+
+	)
+/*
+Let ( [
+
+	  stCode 	= "&lt;?" &amp; key &amp; ":"
+	; endCode	= ":?&gt;"
+	; stPos	= Position ( input ; stCode ; 1 ; 1 ) + Length ( stCode )
+	; endPos	= Position ( input ; endCode ; stPos ; 1 )
+	; length	= endPos - stPos
+	] ;
+	Substitute ( Middle ( input ; stPos ; length ) ; "!!!" ; "¶" )
+	)
+*/</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

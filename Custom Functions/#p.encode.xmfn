@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[50000475]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.516885e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[#p.encode( name;value )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="17" functionArity="2" visible="True" parameters="name;value" name="#p.encode"><Calculation>//"&lt;:" &amp; name &amp; ":=" &amp; value &amp; ":&gt;"
+
+//Name:  #P_encode
+//Parameters:  name,  value
+//Formula:  
+
+"&lt;:" 
+&amp; 
+Substitute (
+	  name
+	; ["="; "/="]	
+	; [":"; "/:"]
+	; ["&gt;"; "/&gt;"]
+	; ["&lt;" ; "/&lt;"]
+	) 
+&amp; 
+":=" 
+&amp; 
+Substitute (
+	  value
+	; ["="; "/="]
+	; [":"; "/:"]
+	; ["&gt;"; "/&gt;"]
+	; ["&lt;" ; "/&lt;"]
+	)
+&amp;
+":&gt;"</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42062300]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.516884e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[#ds.encode( data_series;start )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="11" functionArity="2" visible="True" parameters="data_series;start" name="#ds.encode"><Calculation>"&lt;data_" &amp; start &amp; "?" &amp; GetValue ( data_series ; start ) &amp; "/&gt;"
+&amp;
+Case ( 
+	  ValueCount ( data_series ) &gt; start
+	; #ds.encode ( data_series ; start + 1 )
+	)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

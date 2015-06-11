@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[42062300]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.516884e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[#ds.decode( data_series;data_value;start )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="10" functionArity="3" visible="True" parameters="data_series;data_value;start" name="#ds.decode"><Calculation>/*List (
+	  Extract ( data_series ; "&lt;data_" &amp; Case ( data_value = "all" ; start ; data_value ) &amp; "?" ; "/&gt;" ; 1 ; "" ) 
+	
+	; Case ( data_value = "all" 
+		; Case ( 
+			  PatternCount ( data_series ; "&lt;data_" ) &gt; start
+			; #ds.decode ( data_series ; "all" ; start + 1 )
+			)
+		)
+	)*/</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

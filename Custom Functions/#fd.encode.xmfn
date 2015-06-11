@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[50000475]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.516884e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[#fd.encode( field;data;multi )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="13" functionArity="3" visible="True" parameters="field;data;multi" name="#fd.encode"><Calculation>"&lt;?field:" &amp; field &amp; ":?&gt;&lt;?data:" &amp; Substitute ( data ; "¶" ; "!!!" ) &amp; ":?&gt;&lt;?multi:" &amp; multi &amp; ":?&gt;"
+
+// multi = append if true</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

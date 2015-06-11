@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[50000475]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.516884e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[#nvp.remove( dict;name )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="25" functionArity="2" visible="True" parameters="dict;name" name="#nvp.remove"><Calculation>Let(
+[
+
+	  ~patternName = "&lt;?name:" &amp; name &amp; ":?&gt;"
+	; ~nameExists = PatternCount ( dict ; ~patternName )
+	; ~positionStart = Position ( dict ; ~patternName ; 0 ; 1 )
+	; ~positionValueEnd = Position ( dict ; ":?&gt;" ; ~positionStart ; 2 ) + 3
+	; ~numberOfChars = ~positionValueEnd - ~positionStart
+	; ~patternPair = Middle ( dict ; ~positionStart ; ~numberOfChars )
+	; ~result = Case ( ~nameExists ; Substitute ( dict ; ~patternPair ; "" ) ; dict )
+
+] 
+
+	; ~result
+
+)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>

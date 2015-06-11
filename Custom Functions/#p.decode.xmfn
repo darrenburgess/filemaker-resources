@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[50000475]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMFN</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.516885e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[#p.decode( name )]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><CustomFunction id="16" functionArity="1" visible="True" parameters="name" name="#p.decode"><Calculation>// get scriptparameter based on name/value pairing
+
+/*
+Let ( [
+
+	  param	= Get ( ScriptParameter )
+	; stCode 	= "&lt;:" &amp; name &amp; ":="
+	; endCode	= ":&gt;"
+	; stPos	= Position ( param ; stCode ; 1 ; 1 ) + Length ( stCode )
+	; endPos	= Position ( param ; endCode ; stPos ; 1 )
+	; length	= endPos - stPos
+	] ;
+	Case ( 
+		  not PatternCount ( param ; ":" &amp; name &amp; ":" )
+		; ""
+		; Middle ( param ; stPos ; length )
+		)
+	)
+*/
+
+//Name:  DictGet
+//Parameters:  name
+//Formula:  
+
+Let ( [
+	  dict		= Get ( ScriptParameter )
+	; match	= "&lt;:" &amp; Substitute ( name ; ["="; "/="] ; [":"; "/:"] ; ["&gt;"; "/&gt;"] ; ["&lt;" ; "/&lt;"] ) &amp; ":="
+	; pstart 	= Position ( dict ; match ; 1 ; 1 )
+	; start 	= pstart + Length ( match )
+	; end 	= Position ( dict ; ":&gt;" ; start ; 1 )
+	; len 		= If ( end = 0 ; 999999999 ; end - start )
+	];
+	Case (
+		  pstart 
+		; Substitute (
+			  Middle (
+				  dict
+				; start
+				; len
+				)
+			; ["/:"; ":"]
+			; ["/="; "="]
+			; ["/&gt;"; "&gt;"]
+			; ["/&lt;" ; "&lt;" ]
+			)
+		)
+	)</Calculation></CustomFunction></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
