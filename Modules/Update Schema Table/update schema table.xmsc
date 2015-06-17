@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><FMClipboard><Version><![CDATA[50000475]]></Version><Comment></Comment><SourceWindowName></SourceWindowName><Class>XMSC</Class><ClipVersion>1</ClipVersion><ClipTimeStamp>3.517376e+9</ClipTimeStamp><ClipAuthor></ClipAuthor><clipboardAsText><![CDATA[Update Schema Table]]></clipboardAsText><Clipboard><fmxmlsnippet type="FMObjectList"><Script includeInMenu="False" runFullAccess="False" id="174" name="Update Schema Table" clipID="185880"><Step enable="True" id="89" name="comment"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="comment"><Text>   Purpose:		Create, delete and update records in the 'table' table</Text></Step><Step enable="True" id="89" name="comment"><Text>   Parameters:	None</Text></Step><Step enable="True" id="89" name="comment"><Text>   Parameters:	NOTES /////////////////////////////////
+This script will create, delete or update the schema_table.
+All base tables should have a TO with sql_ prepended as in sql_baseTable
+Create will create the record with the base table as TableName
+Update will update the TableName when the base table name changes
+Delete will delete the table record when the base table is deleted</Text></Step><Step enable="True" id="89" name="comment"><Text>   Dependencies:	Create or rename a table called schema_table</Text></Step><Step enable="True" id="89" name="comment"><Text>   Dependencies: dictionary functions - #p.decode; #p.encode</Text></Step><Step enable="True" id="89" name="comment"><Text>   Dependencies: scripts - util. create record and set fields; util . looped find</Text></Step><Step enable="True" id="89" name="comment"><Text>   Called From:	</Text></Step><Step enable="True" id="89" name="comment"><Text>   Author:	    Darren Burgess</Text></Step><Step enable="True" id="89" name="comment"><Text>   Revision:		Last changed 20150615 by DB</Text></Step><Step enable="True" id="89" name="comment"><Text>  ======================================================</Text></Step><Step enable="True" id="89" name="comment"/><Step enable="True" id="89" name="comment"><Text>gather list of tables to delete, create or update</Text></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Let ( [ 
+
+  ~sql = List ( 
+
+		  "SELECT TableID"
+		; "FROM schema_table"
+		; "WHERE TableID NOT IN"
+		; "(SELECT  tableID"
+		; "FROM FileMaker_Tables)"
+	
+		)
+
+; $sqlQuery = ~sql
+
+; $sqlResult = SQLDebugResult ( ExecuteSQL ( 
+	  $sqlQuery 
+	; "" 
+	; "" 
+
+	)
+)
+]
+
+; If ( $sqlResult = "?" ; False ; $sqlResult )
+    
+)</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_delete_tables</Name></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Let ( [ 
+
+  ~sql = List ( 
+
+		  "SELECT TableID, BaseTableName"
+		; "FROM FileMaker_Tables"
+		; "WHERE TableID NOT IN"
+		; "(SELECT tableID"
+		; "FROM schema_table)"
+		; "AND TableName LIKE 'sql_%'"
+		; "ORDER BY BaseTableName"
+	
+		)
+
+; $sqlQuery = ~sql
+
+; $sqlResult = SQLDebugResult ( ExecuteSQL ( 
+	  $sqlQuery 
+	; "" 
+	; "" 
+
+	)
+)
+]
+
+; If ( $sqlResult = "?" ; False ; $sqlResult )
+    
+)</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_new_tables</Name></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Let ( [ 
+
+  ~sql = List ( 
+
+		  "SELECT DISTINCT ft.TableID, ft.BaseTableName"
+		; "FROM FileMaker_Tables AS ft"
+		; "JOIN schema_table AS st ON ft.TableID = st.TableID"
+		; "WHERE ft.BaseTableName &lt;&gt; st.TableName"
+		)
+
+; $sqlQuery = ~sql
+
+; $sqlResult = SQLDebugResult ( ExecuteSQL ( 
+	  $sqlQuery 
+	; "" 
+	; "" 
+
+	)
+)
+]
+
+; If ( $sqlResult = "?" ; False ; $sqlResult )
+    
+)</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_update_tables</Name></Step><Step enable="True" id="89" name="comment"/><Step enable="True" id="89" name="comment"><Text>delete table records</Text></Step><Step enable="True" id="68" name="If"><Calculation>$_delete_tables</Calculation></Step><Step enable="True" id="1" name="Perform Script"><Calculation>#p.encode ( "_field" ; GetFieldName ( schema_table::TableID ) ) &amp;
+#p.encode ( "_values" ; $_delete_tables )</Calculation><Script id="177" name="util . looped find"/></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Get ( ScriptResult )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_error</Name></Step><Step enable="True" id="68" name="If"><Calculation>not $_error</Calculation></Step><Step enable="True" id="10" name="Delete All Records"><NoInteract state="True"/></Step><Step enable="True" id="70" name="End If"/><Step enable="True" id="70" name="End If"/><Step enable="True" id="89" name="comment"/><Step enable="True" id="89" name="comment"><Text>create table records</Text></Step><Step enable="True" id="68" name="If"><Calculation>$_new_tables</Calculation></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>ValueCount ( $_new_tables )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_value_count</Name></Step><Step enable="True" id="71" name="Loop"/><Step enable="True" id="72" name="Exit Loop If"><Calculation>Let ( $i = $i + 1 ; If ( $i &gt; $_value_count ; Let ( $i = "" ; True ) ) )</Calculation></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>GetValue ( 
+
+	  Substitute ( 
+			  GetValue ( $_new_tables ; $i ) 
+			; "," 
+			; "¶" ) 
+	; 1 
+
+)</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_table_id</Name></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>GetValue ( 
+
+	  Substitute ( 
+			  GetValue ( $_new_tables ; $i ) 
+			; "," 
+			; "¶" ) 
+	; 2
+
+)</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_table_name</Name></Step><Step enable="True" id="1" name="Perform Script"><Calculation>  #p.encode ( "CR_LayoutName" ; "schema_table" )
+
+&amp; #p.encode ( 
+			  "CR_TargetFields" 
+			; List ( 
+				  GetFieldName ( schema_table::TableID )
+				; GetFieldName ( schema_table::TableName )
+				)
+			)
+
+&amp; #p.encode ( 
+			  "CR_Data"
+			; List (
+				  $_table_id
+				; $_table_name
+				)
+			)</Calculation><Script id="178" name="util . create record and set fields"/></Step><Step enable="True" id="73" name="End Loop"/><Step enable="True" id="70" name="End If"/><Step enable="True" id="89" name="comment"/><Step enable="True" id="89" name="comment"><Text>update table records</Text></Step><Step enable="True" id="68" name="If"><Calculation>$_update_tables</Calculation></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>ValueCount ( $_update_table_ids )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_value_count</Name></Step><Step enable="True" id="71" name="Loop"/><Step enable="True" id="72" name="Exit Loop If"><Calculation>Let ( $i = $i + 1 ; If ( $i &gt; $_value_count ; Let ( $i = "" ; True ) ) )</Calculation></Step><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="SelectedLayout"/><Layout id="129" name="schema_table"/></Step><Step enable="True" id="22" name="Enter Find Mode"><Pause state="False"/><Restore state="False"/></Step><Step enable="True" id="76" name="Set Field"><Calculation>GetValue ( 
+
+	  Substitute ( 
+			  GetValue ( $_update_tables ; $i ) 
+			; "," 
+			; "¶" ) 
+	; 1 
+
+)</Calculation><Field table="schema_table" id="11" name="TableID"/></Step><Step enable="True" id="86" name="Set Error Capture"><Set state="True"/></Step><Step enable="True" id="28" name="Perform Find"><Restore state="False"/></Step><Step enable="True" id="141" name="Set Variable"><Value><Calculation>Get ( LastError )</Calculation></Value><Repetition><Calculation>1</Calculation></Repetition><Name>$_error</Name></Step><Step enable="True" id="68" name="If"><Calculation>not $_error</Calculation></Step><Step enable="True" id="76" name="Set Field"><Calculation>GetValue ( $_update_table_names ; $i )</Calculation><Field table="schema_table" id="7" name="TableName"/></Step><Step enable="True" id="70" name="End If"/><Step enable="True" id="73" name="End Loop"/><Step enable="True" id="70" name="End If"/><Step enable="True" id="89" name="comment"/><Step enable="True" id="6" name="Go to Layout"><LayoutDestination value="OriginalLayout"/></Step><Step enable="True" id="89" name="comment"/><Step enable="True" id="103" name="Exit Script"/><Step enable="True" id="89" name="comment"/></Script></fmxmlsnippet></Clipboard><Picture></Picture></FMClipboard>
